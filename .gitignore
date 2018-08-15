@@ -3,3 +3,5 @@
 gradlew
 gradle/
 gradlew.bat
+out/
+build/
