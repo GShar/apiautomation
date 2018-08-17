@@ -1,4 +1,3 @@
-import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -6,26 +5,39 @@ import java.net.URL;
 
 public class ApiRequest {
 
-    public static final String CONTENT_TYPE = "Content-Type";
+    private static final String CONTENT_TYPE = "Content-Type";
     URL url;
-    HttpURLConnection con;
+    private HttpURLConnection con;
+    private String requestURL;
+    private String requestMethod;
+    public ApiRequest(String _requestURL, String _requestMethod){
+        requestURL=_requestURL;
+        requestMethod=_requestMethod;
+    }
 
-    public void setURL(String requestURL) throws MalformedURLException {
+    private void setURL() throws MalformedURLException {
         url= new URL(requestURL);
     }
 
     public URL getURL(){
-    return url;
+        return url;
     }
 
-    public void setConnection() throws IOException {
+    private void setConnection() throws IOException {
         con= (HttpURLConnection) getURL().openConnection();
     }
 
-    public void setRequestMethod(String requestMethod){
+    private void setRequestMethod(){
         con.setRequestProperty(CONTENT_TYPE, requestMethod);
-
     }
+
+    public void sendRequest() throws IOException {
+        setURL();
+        setConnection();
+        setRequestMethod();
+    }
+
+
 
 }
 
