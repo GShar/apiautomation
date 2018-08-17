@@ -3,7 +3,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigurationFileReader {
-Properties props;
+    public static final String REQUEST_URL_PROPERTY_NAME = "requestURL";
+    public static final String REQUEST_METHOD_PROPERTY_NAME = "requestMethod";
+    Properties props;
 
 public ConfigurationFileReader(){
     props= new Properties();
@@ -15,8 +17,12 @@ public ConfigurationFileReader(){
         props.load(inputStream);
     }
 
-    public String getPropertyByName(String propertyName){
-        return props.getProperty(propertyName);
+    public String getRequestUrl(){
+        return props.getProperty(REQUEST_URL_PROPERTY_NAME);
+    }
+
+    public String getRequestMethod(){
+        return  props.getProperty(REQUEST_METHOD_PROPERTY_NAME);
     }
 
 
