@@ -2,11 +2,12 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 public class ApiRequest {
 
     private static final String CONTENT_TYPE = "Content-Type";
-    URL url;
+    private URL url;
     private HttpURLConnection con;
     private String requestURL;
     private String requestMethod;
@@ -19,7 +20,7 @@ public class ApiRequest {
         url= new URL(requestURL);
     }
 
-    public URL getURL(){
+    private URL getURL(){
         return url;
     }
 
@@ -31,10 +32,19 @@ public class ApiRequest {
         con.setRequestProperty(CONTENT_TYPE, requestMethod);
     }
 
-    public void sendRequest() throws IOException {
+    public String createAndSendRequest() throws IOException {
         setURL();
         setConnection();
         setRequestMethod();
+        return getResponse();
+    }
+
+    private String getResponse() throws IOException {
+        Scanner scanResponse= new Scanner(url.openStream());
+        StringBuilder responseBuilder= new StringBuilder();
+        while(scanResponse.hasNext())
+            responseBuilder.append(scanResponse.nextLine());
+        return responseBuilder.toString();
     }
 
 
