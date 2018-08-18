@@ -5,13 +5,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.util.Arrays;
-
 public class JsonResponseParser {
-    public static final String JSON_FIELD_NAME = "Name";
-    public static final String JSON_FIELD_DESCRIPTION = "Description";
-    public static final String JSON_FIELD_PROMOTIONS = "Promotions";
-    public static final String JSON_FIELD_CAN_RELIST = "CanRelist";
+    private static final String JSON_FIELD_NAME = "Name";
+    private static final String JSON_FIELD_DESCRIPTION = "Description";
+    private static final String JSON_FIELD_PROMOTIONS = "Promotions";
+    private static final String JSON_FIELD_CAN_RELIST = "CanRelist";
     private JsonElement rootElement;
 
     public JsonResponseParser(String jsonString){
@@ -35,7 +33,7 @@ public class JsonResponseParser {
     }
 
     private JsonArray getPromotions(){
-        JsonArray arrPromotions=null;
+        JsonArray arrPromotions;
         arrPromotions=getJsonRootObject().get(JSON_FIELD_PROMOTIONS).getAsJsonArray();
         return arrPromotions;
     }
