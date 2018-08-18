@@ -1,5 +1,5 @@
 
-# Project Title
+# apiautomation
 This project(apiautomation) is designed to automate an api using Java as the core programming language and verify the acceptance criteria provied.
 
 ## Getting Started
@@ -17,8 +17,14 @@ I have used the following:
 
 ## Running the tests
 Please folow the steps below to run the test suite:
+1. After cloning, make sure you have gradle installed and run the following command in the root directory:
 
-1. Make sure that you have edited and updated the configuration properties file with the correct values for both fields mentioned below:
+ `gradle wrapper`
+
+ * This command will create the gradlew file.
+
+
+2. Make sure that you have edited and updated the configuration properties file with the correct values for both fields mentioned below:
 
 * requestURL=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
 * requestMethod=Get
