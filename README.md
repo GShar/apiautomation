@@ -11,8 +11,8 @@ https://github.com/GShar/apiautomation.git
 Make sure you have Java installed.
 Also make sure you are using an editor with support for both gradle and Java.
 I have used the following:
-Intellij Idea as the editor
-Gradle as the build tool
+* Intellij Idea as the editor
+* Gradle as the build tool
 
 
 ## Running the tests
@@ -20,8 +20,8 @@ Please folow the steps below to run the test suite:
 
 1. Make sure that you have edited and updated the configuration properties file with the correct values for both fields mentioned below:
 
-requestURL=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
-requestMethod=Get
+* requestURL=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
+* requestMethod=Get
 
 2. Now go to the root folder of the project and run the following gradlew command from command line:
 `./gradlew clean test`
