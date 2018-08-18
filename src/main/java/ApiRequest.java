@@ -44,7 +44,13 @@ public class ApiRequest {
         StringBuilder responseBuilder= new StringBuilder();
         while(scanResponse.hasNext())
             responseBuilder.append(scanResponse.nextLine());
+        scanResponse.close();
         return responseBuilder.toString();
+
+    }
+
+    public void closeConnection(){
+        con.disconnect();
     }
 
 

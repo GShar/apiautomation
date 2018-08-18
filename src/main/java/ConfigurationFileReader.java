@@ -13,10 +13,24 @@ public ConfigurationFileReader(String _propertyFileName){
     props= new Properties();
 }
 
-    private Properties readConfigFile() throws IOException {
-        InputStream inputStream=getClass().getClassLoader().getResourceAsStream(propertyFileName);
-         props.load(inputStream);
-         return props;
+    private Properties readConfigFile() {
+        InputStream inputStream=null;
+    try {
+            inputStream=getClass().getClassLoader().getResourceAsStream(propertyFileName);
+            props.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(inputStream!=null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return props;
     }
 
     public String getRequestUrl() throws IOException {
@@ -26,5 +40,7 @@ public ConfigurationFileReader(String _propertyFileName){
     public String getRequestMethod() throws IOException {
         return  readConfigFile().getProperty(REQUEST_METHOD_PROPERTY_NAME);
     }
+
+
 
 }
