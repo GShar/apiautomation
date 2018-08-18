@@ -37,7 +37,7 @@ public class ApiExecutorTest {
     }
 
     @Test
-    public void IsCanRelist(){
+    public void isCanRelist(){
         assertTrue(jsonResponseParser.isCanResist());
     }
 
